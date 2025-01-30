@@ -9,6 +9,9 @@ This web application displays lists of board games and their reviews. While anyo
 
 - Java
 - Spring Boot
+
+
+
 - Amazon Web Services(AWS) EC2
 - Thymeleaf
 - Thymeleaf Fragments
