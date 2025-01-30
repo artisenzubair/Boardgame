@@ -17,6 +17,8 @@ This web application displays lists of board games and their reviews. While anyo
 - Thymeleaf Fragments
 - HTML5
 - CSS
+
+- 
 - JavaScript
 - Spring MVC
 - JDBC
