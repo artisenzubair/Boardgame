@@ -16,7 +16,7 @@ jobs:
       docker_password:
         type: string
     docker:
-      - image: circleci/docker:latest
+      - image: cimg/base:2021.04
     steps:
       - checkout
       # - setup_remote_docker:
