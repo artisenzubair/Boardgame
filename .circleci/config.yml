@@ -10,6 +10,11 @@ parameters:
 
 jobs:
   build-and-push:
+    parameters:
+      docker_username:
+        type: string
+      docker_password:
+        type: string
     docker:
       - image: circleci/docker:latest
     steps:
