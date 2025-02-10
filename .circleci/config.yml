@@ -32,5 +32,5 @@ workflows:
   build-and-push-workflow:
     jobs:
       - build-and-push:
-          # docker_username: << pipeline.parameters.DOCKER_USERNAME >>
-          # docker_password: << pipeline.parameters.DOCKER_PASSWORD >>
+          docker_username: << pipeline.parameters.DOCKER_USERNAME >>
+          docker_password: << pipeline.parameters.DOCKER_PASSWORD >>
