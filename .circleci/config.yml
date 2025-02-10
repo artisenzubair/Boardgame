@@ -3,8 +3,10 @@ version: 2.1
 parameters:
   docker_username:
     type: string
+    default: "" # Optional: Provide a default value or leave as an empty string
   docker_password:
     type: string
+    default: "" # Optional: Provide a default value or leave as an empty string
 
 jobs:
   build-and-push:
@@ -32,5 +34,5 @@ workflows:
   build-and-push-workflow:
     jobs:
       - build-and-push:
-          docker_username: << pipeline.parameters.DOCKER_USERNAME >>
-          docker_password: << pipeline.parameters.DOCKER_PASSWORD >>
+          docker_username: << pipeline.parameters.docker_username >>
+          docker_password: << pipeline.parameters.docker_password >>
