@@ -1,5 +1,11 @@
 version: 2.1
 
+parameters:
+  docker_username:
+    type: string
+  docker_password:
+    type: string
+
 jobs:
   build-and-push:
     docker:
@@ -11,18 +17,20 @@ jobs:
       - run:
           name: Build Docker Image
           command: |
-            docker build -t $DOCKER_USERNAME/my-docker-image:latest .
+            docker build -t << parameters.docker_username >>/my-docker-image:latest .
       - run:
           name: Login to Docker Hub
           command: |
-            echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+            echo "<< parameters.docker_password >>" | docker login -u "<< parameters.docker_username >>" --password-stdin
       - run:
           name: Push Docker Image to Docker Hub
           command: |
-            docker push $DOCKER_USERNAME/my-docker-image:latest
+            docker push << parameters.docker_username >>/my-docker-image:latest
 
 workflows:
   version: 2
   build-and-push-workflow:
     jobs:
-      - build-and-push
+      - build-and-push:
+          # docker_username: << pipeline.parameters.DOCKER_USERNAME >>
+          # docker_password: << pipeline.parameters.DOCKER_PASSWORD >>
